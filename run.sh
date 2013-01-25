@@ -18,12 +18,12 @@ sleep 3
 #
 # Prepare the command line
 #
-#PRINT_COMPILATION="-XX:+PrintCompilation"
-#PRINT_INLINING="-XX:+PrintInlining"
+PRINT_COMPILATION="-XX:+PrintCompilation"
+PRINT_INLINING="-XX:+PrintInlining"
 #PRINT_ASSEMBLY="-XX:+PrintOptoAssembly"
-#TRACE_DEOPT="-XX:+TraceDeoptimization"
-#PROF_TRAPS="-XX:+ProfileTraps"
-OTHERS="-XX:+TraceICs -XX:+TraceInlineCacheClearing"
+TRACE_DEOPT="-XX:+TraceDeoptimization"
+PROF_TRAPS="-XX:+ProfileTraps"
+OTHERS="-XX:+TraceICs -XX:+TraceInlineCacheClearing -XX:+LogCompilation"
 JAVA_OPTS="-Xms2g \
            -Xmx2g \
            -Xss4m \
@@ -47,3 +47,4 @@ CMD="java -server -cp lib/scala-library.jar:exp.jar $JAVA_OPTS miniboxing.test.T
 #
 echo -e "$CMD\n\n\n" > $FILE
 $CMD 2>&1 | tee -a $FILE
+cp hotspot.log hotspot-$N.log
