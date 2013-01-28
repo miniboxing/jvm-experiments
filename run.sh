@@ -10,7 +10,7 @@ then
 fi
 N=$((N + 1))
 echo $N > count
-FILE=output-$N.txt
+FILE=outputs/output-$N.txt
 unset _JAVA_OPTIONS
 echo Output will go to $FILE...
 sleep 3
